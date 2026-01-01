@@ -45,13 +45,15 @@ export default function Invitation() {
 
           {/* ===== Divider text ===== */}
           <div className="px-5">
-            <label className="font-[Cormorant_Garamond] text-base leading-7 mb-2">Vui Lòng Cho Biết Tên Quý Khách:</label>
+            <label className="font-[Cormorant_Garamond] text-base leading-7 mb-2">Vui Lòng Cho Biết Tên Của Quý Khách:</label>
             <div className="mt-2 flex h-min mb-10">
               <select
                 onChange={(e) => setCallName(e.target.value)}
                 className="border border-gray-300 rounded-l-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#c5b08a]"
               >
                 <option>Bạn</option>
+                <option>Vc</option>
+                <option>Gia Đình</option>
                 <option>Ông</option>
                 <option>Bà</option>
                 <option>Anh</option>

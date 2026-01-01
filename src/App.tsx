@@ -10,6 +10,7 @@ import TimelineDresscode from "./components/TimeLine";
 import WeddingCalendar from "./components/Calendar";
 import WeddingParty from "./components/invite";
 import StartWedding from "./components/start";
+import MusicPlayer from "./components/music";
 
 function App() {
   const queryString = window.location.search.replace("?", "");
@@ -37,6 +38,7 @@ function App() {
       <TimelineDresscode />
       <Gallery />
       <Footer />
+      <MusicPlayer />
     </div>
   );
 }

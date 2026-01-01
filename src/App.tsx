@@ -10,7 +10,6 @@ import TimelineDresscode from "./components/TimeLine";
 import WeddingCalendar from "./components/Calendar";
 import WeddingParty from "./components/invite";
 import StartWedding from "./components/start";
-// import StartCPM from "./components/start";
 
 function App() {
   const queryString = window.location.pathname.replace("/", "");
@@ -36,7 +35,6 @@ function App() {
       <WeddingCalendar />
       <RSVP client={decodeURIComponent(queryString)} />
       <TimelineDresscode />
-      {/* <LoveStory /> */}
       <Gallery />
       <Footer />
     </div>

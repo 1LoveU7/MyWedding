@@ -62,20 +62,17 @@ const WeddingLookbook = () => {
         </section>
 
         {/* Section 2: Ảnh với chữ viết tay (Photo with Handwritten Text Style) */}
-        <section className="relative px-4 reveal overflow-hidden" data-once ref={ref}>
+        <section className="relative px-4 reveal overflow-hidden pt-20 !-mt-20" data-once ref={ref}>
           <div
             className="bg-[#e7e6e6] p-2 shadow-lg max-w-[90%] mx-auto image-slide-up image-reveal--stagger"
             style={{ "--i": 0 } as React.CSSProperties}
           >
             <img src={photos[3].src} className="w-full h-auto" />
           </div>
-          <div className="absolute -top-7 right-3 image-slide-right image-reveal--stagger" style={{ "--i": 3 } as React.CSSProperties}>
+          <div className="absolute top-9 right-3 image-slide-right image-reveal--stagger" style={{ "--i": 3 } as React.CSSProperties}>
             <h3 className="fleur-de-leah text-[#2629ff] text-4xl md:text-6xl opacity-90 mea-culpa-regular text-border">Một Nhà</h3>
           </div>
-          <div
-            className=" absolute bottom-24 left-1 -rotate-12 animate-jiggle2 image-fade image-fade-scale"
-            style={{ "--i": 3 } as React.CSSProperties}
-          >
+          <div className=" absolute top-0 left-1 -rotate-12 animate-jiggle2 image-fade image-fade-scale" style={{ "--i": 3 } as React.CSSProperties}>
             <img src="/images-cut/0085257565beeae0b3af23.webp" />
             <img src="/images-cut/21d1bd23fde872b62bf922.webp" />
             <img src="/images-cut/5e2a65df2514aa4af30521.webp" />
@@ -152,7 +149,7 @@ const WeddingLookbook = () => {
         </section>
 
         {/* Section 5: Ảnh xếp chồng nghệ thuật (Artistic Stacked Photos Style) */}
-        <section className="relative bg-transparent reveal overflow-hidden" data-once ref={ref}>
+        <section className="relative bg-transparent reveal overflow-hidden pt-10" data-once ref={ref}>
           <section className="relative pb-3">
             <div className="transform !-rotate-12 overflow-hidden ">
               <div className="image-reveal--stagger image-slide-left w-[85%] mx-auto shadow-xl border-[8px] border-e7e6e6 ">

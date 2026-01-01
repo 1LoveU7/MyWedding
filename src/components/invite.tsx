@@ -105,7 +105,7 @@ const WeddingLuxuryDesign = () => {
     <section className="relative min-h-screen bg-transparent py-12 px-6 font-serif ">
       <div className="bg-flower-line !-top-10 left-0" />
       <div className="bg-flower-line left-0" />
-      <div className="max-w-md mx-auto overflow-hidden">
+      <div className="max-w-md mx-auto overflow-hidden p-2">
         <div className="">
           <ElegantEventCard
             title="Tiệc Cưới Nhà Gái"

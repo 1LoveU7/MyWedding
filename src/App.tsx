@@ -13,7 +13,7 @@ import StartWedding from "./components/start";
 
 function App() {
   const queryString = window.location.search.replace("?", "");
-  if (!queryString)
+  if (!queryString || queryString.includes("=") || queryString.includes("%3D"))
     return (
       <div
         className="min-h-screen bg-white max-w-[430px] bg-center bg-no-repeat bg-cover bg-fixed"

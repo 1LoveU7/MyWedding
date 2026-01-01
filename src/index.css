@@ -1,0 +1,1064 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+#root {
+  margin: 0 auto;
+  background-color: black;
+}
+/* ========================================
+   1. ROOT & BASE
+======================================== */
+@layer base {
+  :root {
+    /* Scale cho mobile (default) */
+    --fs-h1: 1.875rem; /* 30px */
+    --fs-h2: 1.5rem; /* 24px */
+    --fs-h3: 1.25rem; /* 20px */
+    --fs-h4: 1.125rem; /* 18px */
+    --fs-h5: 1rem; /* 16px */
+    --fs-h6: 0.875rem; /* 14px */
+
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+
+    --lh-heading: 1.25;
+    --lh-body: 1.75;
+    text-align: center;
+  }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: rgb(0, 0, 255); /* gray-900 */
+    background-color: #ffffff;
+  }
+}
+
+/* ========================================
+   2. HEADINGS
+======================================== */
+@layer base {
+  h1 {
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    line-height: var(--lh-heading);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: var(--fs-h2);
+    font-weight: 600;
+    line-height: var(--lh-heading);
+    margin-bottom: 0.875rem;
+  }
+
+  h3 {
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: var(--fs-h4);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  h5 {
+    font-size: var(--fs-h5);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  h6 {
+    font-size: var(--fs-h6);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ========================================
+   3. TEXT
+======================================== */
+@layer base {
+  p {
+    margin-bottom: 1rem;
+    color: #374151; /* gray-700 */
+  }
+
+  small {
+    font-size: var(--fs-small);
+    color: #6b7280;
+  }
+
+  strong {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  a {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+section {
+  width: 100%;
+}
+/* ========================================
+   4. LIST
+======================================== */
+@layer base {
+  ul,
+  ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  background: transparent !important;
+}
+/* ========================================
+   5. BLOCKQUOTE
+======================================== */
+@layer base {
+  blockquote {
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+  }
+}
+
+/* ========================================
+   6. CODE
+======================================== */
+@layer base {
+  code {
+    font-family: "Fira Code", monospace;
+    background: #f3f4f6;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  pre {
+    font-family: "Fira Code", monospace;
+    background: #111827;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+  }
+}
+
+/* ========================================
+   7. TABLE
+======================================== */
+@layer base {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+
+  th,
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  th {
+    background: #f9fafb;
+    font-weight: 600;
+  }
+}
+
+/* ========================================
+   8. RESPONSIVE SCALE (TABLET)
+======================================== */
+@media (min-width: 768px) {
+  :root {
+    --fs-h1: 2.25rem; /* 36px */
+    --fs-h2: 1.875rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.25rem;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   9. RESPONSIVE SCALE (DESKTOP)
+======================================== */
+@media (min-width: 1024px) {
+  :root {
+    --fs-h1: 3rem; /* 48px */
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.875rem;
+    --fs-h4: 1.5rem;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+.alex-brush-regular {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(50px, 50px) scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+/* font */
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-scroll {
+  animation: scroll 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+.allura-regular {
+  font-family: "Allura", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.fleur-de-leah-regular {
+  font-family: "Fleur De Leah", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.mea-culpa-regular {
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.lavishly-yours-regular {
+  font-family: "Lavishly Yours", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.oooh-baby-regular {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 700;
+  font-style: normal;
+  color: rgb(0, 0, 255) !important;
+  font-size: 20px !important;
+}
+.cherry-bomb-one-regular {
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* font */
+/* ===============================
+   REVEAL – PARENT
+================================ */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+  will-change: transform, opacity;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ===============================
+   SLIDE DIRECTIONS
+================================ */
+.slide-left {
+  transform: translate3d(-40px, 0, 0);
+}
+
+.slide-right {
+  transform: translate3d(33px, 0, 0);
+}
+
+.slide-up {
+  transform: translate3d(0, 40px, 0);
+}
+
+.slide-down {
+  transform: translate3d(0, -40px, 0);
+}
+
+/* ===============================
+   FADE / SCALE
+================================ */
+.fade {
+  opacity: 0;
+  transform: none;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.scale-in {
+  transform: scale(0.92);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.reveal.is-visible .scale-in {
+  transform: scale(1);
+  opacity: 1;
+  transition-delay: 0.6s; /* chờ slide-left xong */
+}
+
+/* ===============================
+   TEXT REVEAL (CHILD)
+================================ */
+.text-reveal {
+  /* display: inline-block; */
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+/* child chỉ chạy SAU parent */
+.reveal.is-visible .text-reveal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(0.7s + var(--i, 0) * 120ms);
+}
+
+/* ===============================
+   TEXT SLIDE DIRECTIONS
+================================ */
+.text-slide-left {
+  transform: translate3d(-12px, 0, 0);
+}
+
+.text-slide-right {
+  transform: translate3d(12px, 0, 0);
+}
+
+.text-slide-up {
+  transform: translate3d(0, 14px, 0);
+}
+
+.text-slide-down {
+  transform: translate3d(0, -14px, 0);
+}
+
+.text-fade-up {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+}
+
+/* ===============================
+   LETTER SLIDE (CHAR BY CHAR)
+================================ */
+.text-letter span {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  will-change: transform, opacity;
+}
+
+/* letter chỉ chạy khi parent visible */
+.reveal.is-visible .text-letter span {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(0.7s + var(--i) * 80ms);
+}
+
+/* ===============================
+   STAGGER GROUP (OPTIONAL)
+================================ */
+.stagger > * {
+  transition-delay: calc(var(--i) * var(--stagger, 120ms));
+}
+
+/* ===============================
+   PERFORMANCE MOBILE
+================================ */
+
+/* delay theo dòng */
+.reveal.is-visible .line {
+  transition-delay: calc(0.6s + var(--line, 0) * 250ms);
+}
+
+/* letter vẫn stagger */
+.reveal.is-visible .line .text-letter span {
+  transition-delay: calc(0.6s + var(--line, 0) * 250ms + var(--i) * 80ms);
+}
+/* chỉ áp dụng cho stagger */
+.text-reveal--stagger {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+}
+
+/* CHỈ chạy khi parent đã visible */
+.reveal.is-visible .text-reveal--stagger {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+
+  transition-delay: calc(0.7s + var(--i, 0) * 120ms);
+}
+.write-up {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  will-change: transform, opacity;
+}
+
+/* chỉ chạy KHI parent reveal xong */
+.reveal.is-visible .write-up {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+
+  transition-delay: calc(0.7s + var(--i, 0) * 120ms);
+}
+/* ===== WRITE TYPING ===== */
+.write-typing {
+  opacity: 1; /* giữ text tồn tại */
+  clip-path: inset(0 100% 0 0); /* che chữ */
+  will-change: clip-path;
+}
+
+/* chạy SAU parent */
+.reveal.is-visible .write-typing {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.6s ease-out;
+  transition-delay: calc(0.7s + var(--i, 0) * 120ms);
+}
+/* ===== MULTI LINE TYPING ===== */
+.write-multiline {
+  --duration: 2.2s;
+
+  opacity: 1;
+
+  /* Mask để che chữ */
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 50%, transparent 50%, transparent 100%);
+  -webkit-mask-size: 200% 100%;
+  -webkit-mask-position: 100% 0;
+
+  mask-image: linear-gradient(to right, #000 0%, #000 50%, transparent 50%, transparent 100%);
+  mask-size: 200% 100%;
+  mask-position: 100% 0;
+
+  will-change: mask-position;
+}
+
+/* chạy sau parent reveal */
+.reveal.is-visible .write-multiline {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  transition: mask-position var(--duration) ease-out;
+  transition-delay: calc(0.7s + var(--i, 0) * 140ms);
+}
+
+/* ===== ROTATE TEXT ===== */
+@keyframes rotateText {
+  from {
+    start-offset: 0%;
+  }
+  to {
+    start-offset: 100%;
+  }
+}
+.border-text {
+  animation: moveText 20s linear infinite;
+}
+
+@keyframes moveText {
+  from {
+    start-offset: 0%;
+  }
+  to {
+    start-offset: 100%;
+  }
+}
+
+.wave-title span {
+  display: inline-block;
+  animation: wave 2.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.typing-text {
+  margin-top: 6px;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(4px);
+  animation: typeIn 0.3s ease forwards;
+  animation-delay: calc(var(--i) * 35ms);
+}
+
+.space {
+  display: inline-block;
+  width: 0.25em;
+}
+
+@keyframes typeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.bg-fade-bottom {
+  position: relative;
+}
+
+/* overlay làm mờ đáy */
+.bg-fade-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.5) 80%, #ffffff 100%);
+  pointer-events: none;
+}
+.white-panel {
+  position: relative;
+  backdrop-filter: blur(2px); /* rất nhẹ */
+}
+
+/* fade đáy panel trắng */
+.white-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -80px;
+  height: 80px;
+
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+
+  pointer-events: none;
+}
+.bg-flower-line {
+  position: absolute;
+  z-index: 100;
+  bottom: -6%;
+  height: 100px;
+  width: 100%;
+  background-color: transparent;
+  background-image: url("/images/floral-divider.png");
+  /* background-repeat: no-repeat; */
+  background-position: center center;
+  background-size: contain;
+}
+
+.divider-flower {
+  position: absolute;
+  bottom: -30px;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: none;
+}
+/* animation sway */
+@keyframes sway {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(0.6deg) translateY(-2px);
+  }
+  50% {
+    transform: rotate(0deg) translateY(0);
+  }
+  75% {
+    transform: rotate(-0.6deg) translateY(-2px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+.animate-sway {
+  animation: sway 6s ease-in-out infinite;
+  transform-origin: center top;
+}
+@keyframes sway-soft {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0.3deg);
+  }
+}
+
+.animate-sway-soft {
+  animation: sway-soft 8s ease-in-out infinite;
+  transform-origin: center;
+}
+/* wiggle */
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20% {
+    transform: rotate(-2deg);
+  }
+  30% {
+    transform: rotate(1.5deg);
+  }
+  40% {
+    transform: rotate(-1.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 1.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes jiggle2 {
+  0% {
+    transform: rotate(5deg);
+  }
+  49% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  99% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.animate-jiggle2 {
+  animation: jiggle2 0.8s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes jiggle {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    transform: translateX(3px) rotate(2deg);
+  }
+  45% {
+    transform: translateX(-2px) rotate(-1.5deg);
+  }
+  60% {
+    transform: translateX(2px) rotate(1.5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+.animate-jiggle {
+  animation: jiggle 0.8s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes popWiggle {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  15% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  30% {
+    transform: scale(0.98) rotate(-2deg);
+  }
+  45% {
+    transform: scale(1.04) rotate(1.5deg);
+  }
+  60% {
+    transform: scale(1) rotate(0);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.animate-pop {
+  animation: popWiggle 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+.img-soft-border {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+}
+.img-glow-border {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 14px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+}
+.img-silk-border {
+  filter: blur(0.2px) drop-shadow(0 0 16px rgba(255, 255, 255, 0.85));
+}
+.bride-image {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 24px rgba(255, 255, 255, 0.6));
+}
+.bride-outline {
+  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff) drop-shadow(0 0 14px #fff);
+}
+
+/* slide */
+.image-fade {
+  /* position: relative; */
+  height: 200px;
+  width: 130px;
+}
+
+.image-fade img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  height: 100%;
+  opacity: 0;
+  animation: fadeSlide 6s infinite;
+}
+
+.image-fade img:nth-child(1) {
+  animation-delay: 0s;
+}
+.image-fade img:nth-child(2) {
+  animation-delay: 2s;
+}
+.image-fade img:nth-child(3) {
+  animation-delay: 4s;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  36% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.text-border {
+  text-shadow: -2px -2px 0 #ffffffff, 2px -2px 0 #ffffffff, -2px 2px 0 #ffffffff, 2px 2px 0 #ffffffff, 0 0 6px #ffffffff;
+}
+.icon-border {
+  text-shadow: -2px -2px 0 #ffffffff, 2px -2px 0 #ffffffff, -2px 2px 0 #ffffffff, 2px 2px 0 #ffffffff, 0 0 6px #ffffffff;
+}
+.img-wrap {
+  position: absolute;
+  left: 0;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 0 0 0 20px;
+  bottom: -5px; /* căn giữa */
+  height: 50%; /* 1/2 chiều dài */
+  width: 90%; /* độ dày border */
+  background: #ffffff;
+}
+/* ===============================
+   IMAGE REVEAL V2 (BASE)
+================================ */
+
+.image-reveal--stagger {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* CHỈ chạy khi parent đã visible */
+.reveal.is-visible .image-reveal--stagger {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease-out;
+
+  transition-delay: calc(0.7s + var(--i, 0) * 120ms);
+}
+.image-slide-up {
+  transform: translate3d(0, 28px, 0);
+}
+.image-slide-left {
+  transform: translate3d(-32px, 0, 0);
+}
+.image-slide-right {
+  transform: translate3d(32px, 0, 0);
+}
+.image-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  will-change: transform, opacity;
+}
+
+.reveal.is-visible .image-scale {
+  opacity: 1;
+  transform: scale(1);
+
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease-out;
+
+  transition-delay: calc(0.7s + var(--i, 0) * 120ms);
+}
+.image-fade-scale {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.reveal.is-visible .image-fade-scale {
+  opacity: 1;
+  transform: scale(1);
+
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease-out;
+
+  transition-delay: calc(0.7s + var(--i, 0) * 140ms);
+}
+.reveal .fade-reveal,
+.reveal .fade-left-right,
+.reveal .fade-right-left,
+.reveal .fade-top-bottom,
+.reveal .fade-bottom-top {
+  will-change: clip-path;
+}
+
+/* ===== Initial state ===== */
+
+/* Left → Right */
+.fade-left-right {
+  clip-path: inset(0 100% 0 0);
+}
+
+/* Right → Left */
+.fade-right-left {
+  clip-path: inset(0 0 0 100%);
+}
+
+/* Top → Bottom */
+.fade-top-bottom {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* Bottom → Top */
+.fade-bottom-top {
+  clip-path: inset(100% 0 0 0);
+}
+
+/* ===== Visible state ===== */
+
+.reveal.is-visible .fade-left-right,
+.reveal.is-visible .fade-right-left,
+.reveal.is-visible .fade-top-bottom,
+.reveal.is-visible .fade-bottom-top {
+  clip-path: inset(0 0 0 0);
+
+  transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(0.3s + var(--i, 0) * 120ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-fade,
+  .image-scale,
+  .image-fade-scale {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .image-reveal--stagger {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .reveal,
+  .text-reveal,
+  .text-letter span {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+/* ===============================
+   ENVELOPE FLOAT + SHADOW
+   =============================== */
+
+@keyframes envelope-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes envelope-shadow {
+  0% {
+    opacity: 0.25;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    opacity: 0.25;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.envelope-float {
+  animation: envelope-float 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.envelope-shadow {
+  animation: envelope-shadow 4.5s ease-in-out infinite;
+}

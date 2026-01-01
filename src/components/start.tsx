@@ -3,21 +3,25 @@ import { useState } from "react";
 // src/pages/Invitation.tsx
 export default function Invitation() {
   const [name, setName] = useState("");
+  const [callName, setCallName] = useState("Bạn");
   const onSubmit = () => {
-    if (name.trim() === "") {
+    if (name.trim() === "" && callName.trim() === "") {
       alert("Vui lòng nhập tên của bạn.");
       return;
     }
-    document.location.href = `/${encodeURIComponent(name.trim())}`;
+    document.location.href = `/?${encodeURIComponent(callName.trim())}?${encodeURIComponent(name.trim())}`;
   };
   return (
     <div className="min-h-screen bg-[#f4f4f4] flex justify-center py-10">
       <div className="relative w-[390px] bg-white shadow-xl rounded-md overflow-hidden">
         {/* ===== Floral left ===== */}
-        <img src="/assets/floral-left.png" className="absolute top-20 left-0 w-28" />
+        <img
+          src="https://img.cinelove.me/templates/assets/77a0f81e-67af-4f30-91b6-73c5e5ce6aea/bd7bf8f4-643f-47c8-995f-3bd8ce3235d1.png"
+          className="absolute top-20 left-0 w-28"
+        />
 
         {/* ===== Floral right ===== */}
-        <img src="/assets/floral-right.png" className="absolute bottom-36 right-0 w-28" />
+        <img src="https://assets.cinelove.me/resources/bouquet/unri8axa4zmlj5408kc4ko.png" className="absolute bottom-36 right-0 w-28" />
 
         {/* ===== CONTENT ===== */}
         <div className="relative z-10 px-6 text-center text-[#222]">
@@ -42,18 +46,31 @@ export default function Invitation() {
           {/* ===== Divider text ===== */}
           <div className="px-5">
             <label className="font-[Cormorant_Garamond] text-base leading-7 mb-2">Vui Lòng Cho Biết Tên Quý Khách:</label>
-            <input
-              type="text"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#c5b08a] mb-6"
-              placeholder="Nhập tên của bạn"
-              onChange={(e) => setName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  onSubmit();
-                }
-              }}
-            />
-            {name.trim() && (
+            <div className="mt-2 flex h-min mb-10">
+              <select
+                onChange={(e) => setCallName(e.target.value)}
+                className="border border-gray-300 rounded-l-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#c5b08a]"
+              >
+                <option>Bạn</option>
+                <option>Ông</option>
+                <option>Bà</option>
+                <option>Anh</option>
+                <option>Chị</option>
+                <option>Em</option>
+              </select>
+              <input
+                type="text"
+                className="w-full border border-gray-300 rounded-r-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#c5b08a]"
+                placeholder="Nhập tên của bạn"
+                onChange={(e) => setName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    onSubmit();
+                  }
+                }}
+              />
+            </div>
+            {name.trim() && callName.trim() && (
               <button
                 onClick={onSubmit}
                 className="w-full bg-[#c5b08a] text-white font-semibold py-2 rounded-md hover:bg-[#b39d6d] transition-colors"

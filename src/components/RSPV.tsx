@@ -2,6 +2,7 @@ import { data } from "../data/data";
 import { useRevealItems } from "./animation";
 
 export default function RSVP({ client }: { client?: string }) {
+  const [fist, name] = client?.split("?") || [];
   const reveal = useRevealItems<HTMLDivElement>();
   const { cd, cr } = data;
   return (
@@ -46,7 +47,9 @@ export default function RSVP({ client }: { client?: string }) {
 
           <h2 className="text-lg allura-regular mb-1">Trân trọng kính mời</h2>
 
-          <h2 className="text-red-600 dancing-script text-2xl md:text-3xl mt-2">{client}</h2>
+          <h2 className="text-red-600 dancing-script text-2xl md:text-3xl mt-2 capitalize">
+            {fist} {name}
+          </h2>
 
           <p className="text-sm italic opacity-80">Đến tham dự lễ thành hôn của chúng tôi</p>
         </div>

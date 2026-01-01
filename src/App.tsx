@@ -12,7 +12,7 @@ import WeddingParty from "./components/invite";
 import StartWedding from "./components/start";
 
 function App() {
-  const queryString = window.location.pathname.replace("/", "");
+  const queryString = window.location.search.replace("?", "");
   if (!queryString)
     return (
       <div

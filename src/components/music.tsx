@@ -1,97 +1,101 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function MusicPlayer() {
-  const playerRef = useRef<any>(null);
-  const startedRef = useRef(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const unlockedRef = useRef(false);
+
   const [playing, setPlaying] = useState(false);
+  const [ready, setReady] = useState(false);
 
-  useEffect(() => {
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
+  // 🔓 unlock audio (gesture thật)
+  const unlockAudio = async () => {
+    const audio = audioRef.current;
+    if (!audio || unlockedRef.current) return;
 
-    (window as any).onYouTubeIframeAPIReady = () => {
-      playerRef.current = new (window as any).YT.Player("yt-player", {
-        videoId: "E-cMdqI4ZTc",
-        playerVars: {
-          autoplay: 1, // ❗ không autoplay
-          loop: 1,
-          playlist: "E-cMdqI4ZTc",
-          controls: 0,
-          modestbranding: 1,
-        },
-        events: {
-          onStateChange: (e: any) => {
-            if (e.data === (window as any).YT.PlayerState.PLAYING) {
-              setPlaying(true);
-            }
-            if (e.data === (window as any).YT.PlayerState.PAUSED) {
-              setPlaying(false);
-            }
-          },
-        },
-      });
-    };
+    try {
+      audio.volume = 0.8;
+      await audio.play();
 
-    const startOnGesture = () => {
-      if (startedRef.current) return;
-      if (!playerRef.current) return;
-
-      playerRef.current.playVideo();
-      startedRef.current = true;
+      unlockedRef.current = true;
       setPlaying(true);
+      setReady(true);
 
-      // cleanup
-      window.removeEventListener("scroll", startOnGesture);
-      window.removeEventListener("click", startOnGesture);
-      window.removeEventListener("touchstart", startOnGesture);
-      window.removeEventListener("keydown", startOnGesture);
-    };
-
-    // BẮT USER GESTURE
-    window.addEventListener("scroll", startOnGesture, { passive: true });
-    window.addEventListener("click", startOnGesture);
-    window.addEventListener("touchstart", startOnGesture);
-    window.addEventListener("keydown", startOnGesture);
-
-    return () => {
-      window.removeEventListener("scroll", startOnGesture);
-      window.removeEventListener("click", startOnGesture);
-      window.removeEventListener("touchstart", startOnGesture);
-      window.removeEventListener("keydown", startOnGesture);
-    };
-  }, []);
-
-  const togglePlay = () => {
-    if (!playerRef.current) return;
-
-    if (playing) {
-      playerRef.current.pauseVideo();
-    } else {
-      playerRef.current.playVideo();
+      document.removeEventListener("pointerdown", unlockAudio);
+      document.removeEventListener("touchend", unlockAudio);
+    } catch (e) {
+      // iOS sẽ block nếu gesture chưa hợp lệ
     }
   };
 
+  // 🎧 play / pause từ button
+  const togglePlay = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    // nếu chưa unlock → coi click là gesture
+    if (!unlockedRef.current) {
+      await unlockAudio();
+      return;
+    }
+
+    if (audio.paused) {
+      await audio.play();
+      setPlaying(true);
+    } else {
+      audio.pause();
+      setPlaying(false);
+    }
+  };
+
+  useEffect(() => {
+    // bắt gesture toàn màn hình
+    document.addEventListener("pointerdown", unlockAudio);
+    document.addEventListener("touchend", unlockAudio);
+
+    return () => {
+      document.removeEventListener("pointerdown", unlockAudio);
+      document.removeEventListener("touchend", unlockAudio);
+    };
+  }, []);
+
   return (
     <>
-      {/* YouTube player ẩn */}
-      <div id="yt-player" className="hidden" />
+      {/* AUDIO */}
+      <audio
+        ref={audioRef}
+        src="/music/background.mp3" // 🔁 đổi link tại đây
+        preload="auto"
+        playsInline
+        loop
+      />
 
-      {/* Nút điều khiển */}
+      {/* OVERLAY lần đầu (tuỳ chọn, có thể bỏ) */}
+      {!ready && <div className="fixed inset-0 z-40 bg-black/30 pointer-events-none" />}
+
+      {/* PLAY / PAUSE BUTTON */}
       <button
-        onClick={togglePlay}
+        onPointerDown={togglePlay}
         className="
           fixed top-6 right-6 z-50
           w-12 h-12 rounded-full
           bg-white/90 backdrop-blur
-          shadow-lg
           flex items-center justify-center
-          hover:scale-105 transition
-          text-black
         "
       >
-        <img src="https://assets.cinelove.me/assets/audio-6.png" className={`bg-black rounded-full w-7 h-7 ${playing ? "animate-spin-slow" : ""}`} />
+        <img src="https://assets.cinelove.me/assets/audio-6.png" className={`bg-black w-7 h-7 rounded-full ${playing ? "animate-spin-slow" : ""}`} />
       </button>
+      {!ready && (
+        <div
+          className="
+            fixed inset-0 z-50
+            flex items-center justify-center
+            bg-black/40 text-white
+            text-sm
+          "
+        >
+          Tap anywhere to enable sound
+        </div>
+      )}
     </>
   );
 }

@@ -5,7 +5,7 @@ export const data = {
   crCountry: `Hòa Lang, Hoà Hương,\n Đà Nẵng`,
   cdCountry: " Tân Kim, Cần Giuộc,\n Tây Ninh",
   cdBa: "Nguyễn Tòng Bá",
-  cdMa: "Mai Thị Miếng",
+  cdMa: "Mai Thị Tiếng",
   cd: "Thanh Hằng",
   cr: "Thiên Lý",
   crF: "Phạm Thiên Lý",

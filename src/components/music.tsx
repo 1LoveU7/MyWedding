@@ -1,44 +1,48 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function MusicPlayer() {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [playing, setPlaying] = useState(true);
+  const playerRef = useRef<any>(null);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
 
-    audio.volume = 0.8;
-    audio.loop = true;
-
-    audio
-      .play()
-      .then(() => setPlaying(true))
-      .catch(() => {
-        // Autoplay bị chặn (iOS / Chrome mobile)
-        setPlaying(false);
+    (window as any).onYouTubeIframeAPIReady = () => {
+      playerRef.current = new (window as any).YT.Player("yt-player", {
+        videoId: "E-cMdqI4ZTc",
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: "E-cMdqI4ZTc",
+          controls: 0,
+          mute: 0,
+        },
+        events: {
+          onReady: (e: any) => {
+            e.target.playVideo();
+            setPlaying(true);
+          },
+        },
       });
+    };
   }, []);
 
-  const togglePlay = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
+  const togglePlay = () => {
+    if (!playerRef.current) return;
     if (playing) {
-      audio.pause();
+      playerRef.current.pauseVideo();
       setPlaying(false);
     } else {
-      await audio.play();
+      playerRef.current.playVideo();
       setPlaying(true);
     }
   };
 
   return (
-    <div className="fixed top">
-      {/* AUDIO */}
-      <audio ref={audioRef} src="https://assets.cinelove.me/mp3/6314d887-8f65-408f-b870-a2dea3dc0ce8.mp3" loop preload="auto" />
-
-      {/* BUTTON */}
+    <>
+      <div id="yt-player" className="hidden" />
       <button
         onClick={togglePlay}
         className="
@@ -53,6 +57,7 @@ export default function MusicPlayer() {
       >
         <img src="https://assets.cinelove.me/assets/audio-6.png" className={`bg-black rounded-full w-7 h-7 ${playing ? "animate-spin-slow" : ""}`} />
       </button>
-    </div>
+      {/* <button onClick={togglePlay}>▶ / ⏸</button> */}
+    </>
   );
 }
